@@ -154,3 +154,17 @@ add_filter('excerpt_more', 'new_excerpt_more');
  */
 
 add_filter('show_admin_bar', '__return_false');
+
+/**
+ * Put a class on the first instance of a paragraph
+ */
+
+function first_paragraph($content){
+  // Testing to see if the content is a Page or Custom Post Type of school, if so, display the text normally (without the class = intro).
+  if ( is_page() || ('school' == get_post_type() ) ) {
+    return preg_replace('/<p([^>]+)?>/', '<p$1>', $content, 1);
+  } else {
+    return preg_replace('/<p([^>]+)?>/', '<p$1 class="intro">', $content, 1);
+  }
+}
+add_filter('the_content', 'first_paragraph');
