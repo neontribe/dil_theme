@@ -7,7 +7,7 @@
 	$parentCatName = get_cat_name($parentCat);
 ?>
 
-<h1><?php bloginfo( 'name' ); ?> 
+<h1><a href="/"><?php bloginfo( 'name' ); ?></a> 
 <?php if ($parentCat !== 0) : ?>
 	<em class="<?php echo strtolower($thisCatName); ?>"><?php echo $parentCatName; ?> <span class="visually-hidden">(<?php echo strtolower($thisCatName); ?> references)</span></em>
 <?php else : ?>

@@ -8,7 +8,8 @@
 	<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
 	<span>of <?php the_author(); ?></span>
 </h1>
-<div class="page">
+<div class="dil-page">
+		<p class="center">Published on the day <time><?php echo get_the_date('d/m/Y'); ?></time></p>
 	<?php the_content(); ?>
 </div>
 

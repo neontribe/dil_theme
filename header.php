@@ -22,8 +22,8 @@ lang="en-GB"> <![endif]-->
 		<aside role="complementary" aria-labelledby="meta-nav">
 			<h2 class="visually-hidden" id="meta-nav">Site Tools</h2>
 			<ul>
-				<li><a href="#">About <em>A Day In The Life</em></a></li>
-				<li><a href="#">Login</a></li>
+				<li><a href="<?php $page = get_page_by_title( 'About' ); echo $page->guid ?>">About <em>A Day In The Life</em></a></li>
+				<li><a href="/wp-admin">Login</a></li>
 			</ul>
 		</aside>
 		<nav role="navigation" aria-labelledby="topic-nav">

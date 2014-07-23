@@ -11,7 +11,10 @@
 			</main>
 			<footer role="contentinfo">
 				<div>
-					<p>&copy; Copyright A Day In The Life</p>
+					<p>	
+						<strong>A Day In The Life</strong> is brought to you by<br/> 
+						<a href="http://socialspider.com/"><img src="<?php bloginfo( 'stylesheet_directory' ); ?>/images/ss.jpg" alt="Social Spider"></a>
+					</p>
 				</div>
 			</footer>
 		</div>
