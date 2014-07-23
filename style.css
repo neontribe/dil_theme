@@ -213,6 +213,11 @@ h1 em.negative:before {
 	width: 40%;
 }
 
+[aria-labelledby="pos-or-neg"] li a:hover, 
+[aria-labelledby="pos-or-neg"] li a:focus {
+	border-bottom: 2px solid;
+}
+
 [aria-labelledby="pos-or-neg"] li:first-child a {
 	color: #bf4747;
 }
@@ -689,22 +694,84 @@ time {
 
 @media all and (max-width: 550px) {
 
-	[aria-labelledby="topic-nav"] li {
+	[aria-labelledby="topic-nav"] > ul > li + li {
+		margin-top: 0.125em;
+	}
+
+	[aria-labelledby="topic-nav"] > ul {
+		background: #5F5A47;
+	}
+
+	[aria-labelledby="topic-nav"] > ul > li {
+		position: relative;
+	}
+
+	[aria-labelledby="topic-nav"] > ul > li {
+		display: block;
+		width: auto;
+		text-align: left;
+	}
+
+	[aria-labelledby="topic-nav"] ul li a {
 		display: block;
 		width: 100%;
+		font-size: 1.25em;
+		padding: 0.5em;
 	}
 
 	[aria-labelledby="topic-nav"] ul ul {
-		display: none;
+		position: absolute;
+		top: 0;
+		left: 40%;
+		width: 60%;
+		bottom: 0;
 	}
+
+	[aria-labelledby="topic-nav"] ul ul {
+		display: block;
+	}
+
+	[aria-labelledby="topic-nav"] ul ul li {
+		display: table-cell;
+		width: 1%;
+		height: 100%;
+	}	
+
 	[aria-labelledby="topic-nav"] a {
-		background: #759f59; /* Old browsers */
-		background: -moz-linear-gradient(top, #759f59 0%, #5e7f47 100%); /* FF3.6+ */
-		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#759f59), color-stop(100%,#5e7f47)); /* Chrome,Safari4+ */
-		background: -webkit-linear-gradient(top, #759f59 0%,#5e7f47 100%); /* Chrome10+,Safari5.1+ */
-		background: -o-linear-gradient(top, #759f59 0%,#5e7f47 100%); /* Opera 11.10+ */
-		background: -ms-linear-gradient(top, #759f59 0%,#5e7f47 100%); /* IE10+ */
-		background: linear-gradient(to bottom, #759f59 0%,#5e7f47 100%); /* W3C */
+		background: #759f59;
+	}
+
+	[aria-labelledby="topic-nav"] ul ul li:first-child a {
+		background: #d35f5f;
+	}
+
+	[aria-labelledby="topic-nav"] ul ul li:last-child a {
+		background: #cfaf33;
+	}
+
+	[aria-labelledby="topic-nav"] > ul > li > a:after {
+		content: '\0020\2192' !important;
+	}
+
+	[aria-labelledby="pos-or-neg"] {
+		font-size: 1.5em;
+	}
+
+}
+
+@media all and (max-width: 450px) {
+
+	[aria-labelledby="topic-nav"] {
+		font-size: 0.85em;
+	}
+
+	[aria-labelledby="topic-nav"] ul ul a:before {
+		content: '' !important;
+	}
+
+	[aria-labelledby="pos-or-neg"] li {
+		display: block;
+		width: auto;
 	}
 
 }

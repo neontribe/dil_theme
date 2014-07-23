@@ -2,7 +2,7 @@
 
 <h1><!--<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">--><?php bloginfo( 'name' ); ?><!--</a>--></h1>
 <p><?php bloginfo( 'description' ); ?></p>
-<a href="#" class="button-shaped submit-day">Add a day!</a>
+<a href="/wp-admin/post-new.php" class="button-shaped submit-day">Add a day!</a>
 <h2 class="latest">Latest Days</h2>
 <ol class="grid">
 <?php if ( have_posts() ) : ?>
