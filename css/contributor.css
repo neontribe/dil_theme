@@ -4,3 +4,7 @@
 .wp-editor-tabs #content-html {
   display: none;
 }
+
+#titlewrap {
+	display: none;
+}

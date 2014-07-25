@@ -168,3 +168,12 @@ function first_paragraph($content){
   }
 }
 add_filter('the_content', 'first_paragraph');
+
+// Load specific js for new-post.php
+
+function enqueue_post_script($hook) {
+    if( 'post-new.php' != $hook )
+        return;
+    wp_enqueue_script( 'post_new_script', get_template_directory_uri() . '/js/post-new.js' );
+}
+add_action( 'admin_enqueue_scripts', 'enqueue_post_script' );
