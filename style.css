@@ -180,12 +180,12 @@ h2.latest {
 
 .positive {
 	margin-top: 0.125em;
-	color: #bf9f2f;
+	color: #bf9f2f !important;
 }
 
 .negative {
 	margin-top: 0.125em;
-	color: #bf4747;
+	color: #bf4747 !important;
 }
 
 h1 em {
@@ -194,14 +194,22 @@ h1 em {
 	margin-top: 0;
 }
 
-h1 em.positive:before {
+.positive:before {
 	content: '\263a';
-	padding-right: 0.125em;
+	padding-right: 0.05em;
 }
 
-h1 em.negative:before {
+.negative:before {
 	content: '\2639';
-	padding-right: 0.125em;
+	padding-right: 0.05em;
+}
+
+.post-cats a:not(:hover):not(:focus) {
+	border: 0;
+}
+
+.post-cats a:before {
+	padding-right: 0;
 }
 
 [aria-labelledby="pos-or-neg"] {

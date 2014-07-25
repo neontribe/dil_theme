@@ -9,11 +9,30 @@
 	<span>of <?php the_author(); ?></span>
 </h1>
 <div class="dil-page">
-		<p class="center">Published on the day <time><?php echo get_the_date('d/m/Y'); ?></time></p>
+
+
+
+		<p class="center">
+			Published on the day <time><?php echo get_the_date('d/m/Y'); ?></time>.<br/>
+			Found in <span class="post-cats">
+			<?php
+				$categories = get_the_category();
+				for ($i = 0; $i < count($categories); ++$i ) {
+					$category = $categories[$i];
+					if ($category->parent !== 0) {
+						$categoryParent = get_cat_name($category->parent);
+						$class = strtolower($category->name); ?>
+						<a class="<?php echo $class; ?>" href="<?php echo get_category_link($category->cat_ID) ?>">
+							<?php echo $categoryParent; ?><span class="visually-hidden"><?php echo $category->name ?></span></a><?php if ($i + 1 !== count($categories)) { echo ', '; }
+					}
+				} 
+			?>
+			</span>
+		</p>
+		<div class="categories">
+		</div>
 	<?php the_content(); ?>
 </div>
-
-
 
 
 
