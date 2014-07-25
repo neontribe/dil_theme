@@ -1,0 +1,6 @@
+/*--------- USE FOR CONTRIBUTOR SPECIFIC ADMIN STYLES ----------*/
+
+/* Hide the html text editor tab from contribs */
+.wp-editor-tabs #content-html {
+  display: none;
+}
