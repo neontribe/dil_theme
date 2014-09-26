@@ -177,3 +177,9 @@ function enqueue_post_script($hook) {
     wp_enqueue_script( 'post_new_script', get_template_directory_uri() . '/js/post-new.js' );
 }
 add_action( 'admin_enqueue_scripts', 'enqueue_post_script' );
+
+// Email encode shortcode
+function email_encode_function( $atts, $content ) {
+    return '<a href="'.antispambot("mailto:".$content).'">'.antispambot($content).'</a>';
+}
+add_shortcode( 'email', 'email_encode_function' );
