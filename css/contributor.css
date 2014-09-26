@@ -8,3 +8,12 @@
 #titlewrap {
 	display: none;
 }
+
+#dashboard_quick_press, #dashboard_primary {
+    display: none !important;
+}
+
+#mce_19, #mce_18, #mce_20, #mce_21, #mce_22, #mce_23, 
+#mce_24, #mce_25, #mce_26, #mce_27, #mce_28, #mce_30 {
+    display: none !important;
+}

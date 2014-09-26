@@ -10,6 +10,38 @@ action color dark = #5E7F47
 error color = #c00;
 */
 
+@font-face {
+	font-family: 'icomoon';
+	src:url('icomoon.eot?va60wa');
+	src:url('icomoon.eot?#iefixva60wa') format('embedded-opentype'),
+		url('icomoon.woff?va60wa') format('woff'),
+		url('icomoon.ttf?va60wa') format('truetype'),
+		url('icomoon.svg?va60wa#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+	font-family: 'icomoon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-smiley:before {
+	content: "\e600";
+}
+.icon-sad:before {
+	content: "\e601";
+}
+
 html {
 	font-size: 22px;
 	font-weight: 400;
@@ -54,6 +86,25 @@ summary {
 
 /* phrasing
 ------------------------------------------------------ */
+
+[href="#main"] {
+	color: #fff;
+	position: absolute;
+	display: block;
+	top: -100px;
+	left: 35%;
+	right: 35%;
+	margin-top: 0.5em;
+}
+
+[href="#main"]:focus {
+	top: 0;
+	text-align: center;
+}
+
+[href="#main"] + * {
+	margin-top: 0;
+}
 
 p {
 	text-align: left;
@@ -235,13 +286,17 @@ h1 em {
 }
 
 [aria-labelledby="pos-or-neg"] li:first-child a:before {
-	content: '\2639';
+	font-family: icomoon;
+	content: '\E600';
 	padding-right: 0.125em;
+	font-size: 0.8em;
 }
 
 [aria-labelledby="pos-or-neg"] li:last-child a:before {
-	content: '\263a';
+	font-family: icomoon;
+	content: '\E601';
 	padding-right: 0.125em;
+	font-size: 0.8em;
 }
 
 h2.latest:before, .dashes:before {
@@ -612,10 +667,10 @@ h1 span {
 
 [aria-labelledby="topic-nav"] ul ul li:first-child a:before, 
 [aria-labelledby="topic-nav"] ul ul li:last-child a:before {
-	content: '\263a\0020';
-	font-size: 1.5em;
+	font-family: icomoon;
+	font-size: 1.25em;
+	content: '\E600\0020';
 	vertical-align: middle;
-	line0height: 0;
 }
 
 [aria-labelledby="topic-nav"] ul ul li:first-child a {
@@ -629,7 +684,7 @@ h1 span {
 }
 
 [aria-labelledby="topic-nav"] ul ul li:first-child a:before {
-	content: '\2639\0020';
+	content: '\E601\0020';
 }
 
 [aria-labelledby="topic-nav"] a:hover, 

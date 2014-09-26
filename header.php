@@ -13,12 +13,14 @@ lang="en-GB"> <![endif]-->
 	<link rel="icon" href="favico.png" type="image/png" />
 	<title><?php wp_title( '|', true, 'right' ); ?></title>
 	<!--[if lt IE 9]>
-		<script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js" media="all"></script>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<script src="<?php bloginfo('stylesheet_directory'); ?>/js/selectivizr-min.js"></script>
 	<![endif]-->
 	<?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
 	<div>
+		<a href="#main">skip to content</a>
 		<aside role="complementary" aria-labelledby="meta-nav">
 			<h2 class="visually-hidden" id="meta-nav">Site Tools</h2>
 			<ul>
@@ -29,8 +31,8 @@ lang="en-GB"> <![endif]-->
 		<nav role="navigation" aria-labelledby="topic-nav">
 			<h2 class="visually-hidden" id="topic-nav">Topic Navigation</h2>
 			<ul>
-				<?php wp_list_categories('hide_empty=0&exclude=1&title_li'); ?>
+				<?php wp_list_categories('hide_empty=0&exclude=1&title_li='); ?>
 			</ul>
 		</nav>
-		<main id="main" role="main">
+		<main role="main" id="main">
 			<div>
