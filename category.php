@@ -21,10 +21,10 @@
 
 <?php if ($parentCat == 0) : ?>
 
-	<p aria-hidden class="center">Showing all days that mention <strong><?php echo $thisCatName; ?></strong>. You can choose to read just positive or negative mentions:</p>
+	<p aria-hidden class="center">Showing all days that mention <strong><?php echo $thisCatName; ?></strong>. You can choose to read just negative, neutral or positive mentions:</p>
 
 	<nav role="navigation" aria-labelledby="pos-or-neg">
-		<h2 id="pos-or-neg" class="visually-hidden">Choose to read just positive or negative days</h2>
+		<h2 id="pos-or-neg" class="visually-hidden">Choose to read just positive, negative or neutral days</h2>
 		<ul>
 			<?php wp_list_categories('hide_empty=0&title_li&child_of='.$category->term_id); ?>
 		</ul>

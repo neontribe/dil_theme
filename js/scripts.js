@@ -43,3 +43,15 @@
 })( jQuery );
 
 jQuery("h1").fitText(0.75);
+
+/*******************************************
+
+Small screen menu toggle
+
+********************************************/
+
+$(document).ready(function() {
+  $('[aria-controls="topics"]').click(function() {
+    $(this).attr('aria-expanded') === 'true' ? $(this).attr('aria-expanded', 'false') : $(this).attr('aria-expanded', 'true');
+  });
+});

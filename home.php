@@ -1,7 +1,18 @@
 <?php get_header(); ?>
 
 <h1><!--<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">--><?php bloginfo( 'name' ); ?><!--</a>--></h1>
-<p><?php bloginfo( 'description' ); ?></p>
+ <?php
+// The Query
+query_posts( 'page_id=34' );
+
+// The Loop
+while ( have_posts() ) : the_post();
+    the_content();
+endwhile;
+
+// Reset Query
+wp_reset_query();
+?> 
 <a href="/wp-admin/post-new.php" class="button-shaped submit-day">Add a day!</a>
 <h2 class="latest">Latest Days</h2>
 <ol class="grid">
