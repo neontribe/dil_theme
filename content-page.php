@@ -1,10 +1,10 @@
 <?php get_header(); ?>
 
-<div class="narrow content">
-	<h1>
-		<?php the_title(); ?>
-	</h1>
-	<?php the_content(); ?>
-</div>
+<h1>
+	<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a> 
+	<em><?php the_title(); ?></em>
+</h1>
+<article>
+<?php the_content(); ?>
 
 <?php get_footer(); ?>

@@ -19,13 +19,20 @@ lang="en-GB"> <![endif]-->
 	<?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-		<nav role="navigation">
+	<div>
+		<a href="#main">skip to content</a>
+		<aside role="complementary" aria-labelledby="meta-nav">
+			<h2 class="visually-hidden" id="meta-nav">Site Tools</h2>
 			<ul>
-				<li><a href="<?php bloginfo('url'); ?>" aria-label="MOMO homepage"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/momo_logo.png" alt="MOMO homepage" /></a></li>
-				<li><a href="<?php bloginfo('url'); ?>/about">About MOMO</a></li>
-				<li><a href="<?php bloginfo('url'); ?>/how-it-works">How it works</a></li>
-				<li><a class="service-link" href="#">Service MOMO</a></li>
-				<li><a href="<?php bloginfo('url'); ?>/blog">Blog</a></li>
+				<li><a href="/guide"><em>A Day In The Life</em> Guide</a></li>
+				<li><a href="/wp-admin">Login</a></li>
+			</ul>
+		</aside>
+		<button aria-controls="topics" aria-expanded="false">Choose a topic</button>
+		<nav role="navigation" aria-labelledby="topic-nav" id="topics">
+			<h2 class="visually-hidden" id="topic-nav">Topic Navigation</h2>
+			<ul>
+				<?php wp_list_categories('hide_empty=0&exclude=1&title_li=&depth=1'); ?>
 			</ul>
 		</nav>
 		<main role="main" id="main">
