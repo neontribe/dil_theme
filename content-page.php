@@ -4,7 +4,6 @@
 	<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a> 
 	<em><?php the_title(); ?></em>
 </h1>
-<article>
 <?php the_content(); ?>
 
 <?php get_footer(); ?>

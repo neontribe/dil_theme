@@ -11,8 +11,6 @@ get_header(); ?>
 
 			<?php get_template_part( 'content', 'single' ); ?>
 
-			<?php _s_post_nav(); ?>
-
 		<?php endwhile; // end of the loop. ?>
 
 <?php get_footer(); ?>

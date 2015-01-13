@@ -1,6 +1,3 @@
-@import url(http://fonts.googleapis.com/css?family=Bitter:400,400italic,700);
-@import url(http://fonts.googleapis.com/css?family=Kreon:700&text=abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ);
-@import url(http://fonts.googleapis.com/css?family=Pacifico&text=abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789);
 /* 
 line-height = 1.5
 reduced line-height = 1.25
@@ -191,6 +188,11 @@ kbd {
 	white-space: nowrap;
 }
 
+small {
+	font-size: 0.8em;
+	font-style: italic;
+}
+
 /* flow
 ------------------------------------------------------ */
 
@@ -205,14 +207,6 @@ p {
 
 p + p {
 	margin-top: 0.75em;
-}
-
-p.intro:first-letter {
-    float: left;
-    font-size: 3em;
-    line-height: 1;
-    margin-right: 0.0625em;
-    margin-top: 0.125em;
 }
 
 h1, h2, h3 {
@@ -280,6 +274,19 @@ h1 em {
 
 .neutral:before {
 	content: '\e603';
+}
+
+.post-cats a {
+	white-space: nowrap;
+}
+
+.post-cats a:after {
+	content: ',\0020';
+	color: #5F5A47;
+}
+
+.post-cats a:last-of-type:after {
+	content: '';
 }
 
 .post-cats a:not(:hover):not(:focus) {
@@ -355,6 +362,11 @@ h2.latest:after, .dashes:after {
 	margin-top: 3rem;
 }
 
+.grid .tags {
+	margin-top: 0.5em;
+	text-align: center;
+}
+
 h3 { font-size: 2.25em; }
 h4 { font-size: 1.5em; }
 
@@ -406,7 +418,7 @@ dt {
 
 [aria-label="on this page"] {
 	padding: 1.5em;
-	border: 2px solid #b8cfa8;
+	border: 2px solid #c5dcb5;
 }
 
 [aria-label="on this page"] li {
@@ -433,6 +445,27 @@ dt {
 	margin-top: 3em;
 	padding-top: 3em;
 	border-top: 2px dashed;
+}
+
+.paging-navigation li {
+	display: inline-block;
+	width: 45%;
+	text-align: center;
+	padding: 0.5em;
+	font-size: 1.25em;
+	line-height: 1.1;
+}
+
+.paging-navigation li:only-child {
+	width: 100%;
+}
+
+.paging-navigation li a {
+	border: 0;
+}
+
+.paging-navigation li a:hover, .paging-navigation li a:focus {
+	border-bottom: 2px solid;
 }
 
 /* buttons
@@ -580,10 +613,6 @@ label input {
 	vertical-align: baseline;
 }
 
-form p {
-	opacity: 0.7;
-}
-
 /* images
 ------------------------------------------------------ */
 
@@ -606,8 +635,9 @@ img {
 }
 
 a[href="http://socialspider.com/"] {
-	border: 0;
+	border: 0 !important;
 	display: block;
+	margin-top: 0;
 }
 
 /* utility classes
@@ -651,7 +681,7 @@ a[href="http://socialspider.com/"] {
 }
 
 [role="complementary"] a {
-	color: #B8CFA8;
+	color: #c5dcb5;
 }
 
 [role="complementary"] a:hover, 
@@ -673,11 +703,15 @@ h1 em, h1 span {
 	font-size: 0.75em;
 }
 
-.tags a {
+.tags a, .a-tag {
 	border: 2px solid #759F59 !important;
 	border-radius: 1em;
 	padding: 0.125em 0.5em;
 	white-space: nowrap;
+}
+
+.tag {
+	white-space: normal;
 }
 
 .tags a:hover, .tags a:focus {
@@ -719,8 +753,30 @@ h1 span {
 	content: '\2014';
 }
 
+* + .grid {
+	margin-top: 2.25rem;
+}
+
 .grid li > div {
 	box-shadow: inset 0 0 50px #BFB89B, 0.25em 0.25em 0 #BFB89B;
+}
+
+.grid li {
+	margin-top: 0;
+}
+
+.grid h3 {
+	text-align: center;
+}
+
+.grid time {
+	display: block;
+	font-size: 1.5em;
+}
+
+.published {
+	font-size: 1.25em;
+	line-height: 1;
 }
 
 /*[aria-labelledby="topic-nav"] a {
@@ -929,4 +985,104 @@ button[aria-controls="topics"] {
 		display: block;
 	}
 
+}
+
+/* login screen
+------------------------------------------------------ */
+
+#login {
+	padding-top: 4% !important;
+}
+
+#loginform, #registerform {
+	font-family: bitter, sans-serif;
+	font-size: 20px !important;
+	border: 4px solid #5F5A47;
+	border-radius: 0.5em;
+}
+
+#wp-submit, #nav a {
+    background: none repeat scroll 0 0 #759f59;
+    border-color: #5f5a47;
+    border-radius: 0.33em;
+    border-style: solid;
+    border-width: 0 0.125em 0.125em 0;
+    color: #fff !important;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Kreon,serif;
+    font-size: 1.5em;
+    margin: 0.75em;
+    padding: 0.5em 1em;
+    text-align: center;
+    text-transform: capitalize;
+	  height: auto;
+	display: block;
+	margin: 0 auto;
+	margin-top: 0.75em
+}
+
+#loginform label, #registerform label {
+	font-size: 20px !important;
+	color: #5F5A47;
+}
+
+#loginform input[type="text"], #loginform input[type="password"], 
+#registerform input[type="text"], #registerform input[type="password"], #registerform input[type="email"] {
+	border: 2px solid;
+	box-shadow: inset 3px 3px 0 #ccc;
+}
+
+#nav {
+	font-size: 0 !important;
+}
+
+#nav a {
+	font-size: 20px !important;
+	display: block;
+}
+
+#nav a:first-child {
+	font-size: 25px !important;
+}
+
+body.login {
+	background: #fff !important;
+	box-shadow: none;
+	padding-bottom: 25px !important;
+}
+
+#login h1 a {
+	position: absolute;
+	top: -999px;
+}
+
+#loginform + #nav a:first-of-type::before {
+	content: 'First time?';
+	font-family: bitter, sans-serif;
+	display: block;
+	font-size: 0.8em;
+}
+
+#backtoblog {
+	text-align: center;
+}
+
+.message.register {
+	padding: 0;
+	font-size: 20px;
+	font-family: bitter, sans-serif;
+	border: 0;
+	color: #5f5a47;
+	text-align: center;
+	box-shadow: none;
+}
+
+#login:before {
+	content: 'Add A Day';
+	color: #5f5a47;
+	font-family: Kreon, sans-serif;
+	font-size: 3em;
+	display: block;
+	text-align: center;
 }

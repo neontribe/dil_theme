@@ -5,7 +5,7 @@
   display: none;
 }
 
-#titlewrap {
+#titlewrap, #dashboard_right_now, #notepad_widget {
 	display: none;
 }
 
@@ -16,4 +16,97 @@
 #mce_19, #mce_18, #mce_20, #mce_21, #mce_22, #mce_23, 
 #mce_24, #mce_25, #mce_26, #mce_27, #mce_28, #mce_30 {
     display: none !important;
+}
+
+.inside select, .inside label {
+	display: block;
+}
+
+.inside * + label {
+	margin-top: 1em;
+	font-weight: bold;
+}
+
+button, .button-shaped, [type="submit"] {
+	display: inline-block;
+	font-size: 1.5em;
+	background: #759F59;
+	color: #fff;
+	padding: 0.5em 1em;
+	margin: 0.75em 0.75em 0.75em 0;
+	cursor: pointer;
+	font-family: Kreon, serif;
+	text-transform: capitalize;
+	text-align: center;
+	border-width: 0 0.125em 0.125em 0;
+	border-color: #5F5A47;
+	border-style: solid;
+	border-radius: 0.33em;
+}
+
+button:hover, button:focus, 
+.button-shaped:hover, .button-shaped:focus, 
+[type="submit"]:hover, [type="submit"]:focus
+{
+	background: #5E7F47;
+}
+
+button:active, 
+.button-shaped:active, 
+[type="submit"]:active {
+	border-width: 0.125em 0 0 0.125em;
+}
+
+[class*="editorial-metadata"] {
+	display: none;
+}
+
+#your-profile tr:first-of-type, #your-profile .form-table tr:nth-child(3) {
+	display: none;
+}
+
+tr#password + tr {
+	display: table-row !important;
+}
+
+#further-info {
+	background: #c5dcb5;
+}
+
+#post-body #normal-sortables {
+	min-height: 0;
+}
+
+#further-info #hndle span {
+	font-size: 20px !important;
+}
+
+.trash, .all {
+	display: none !important;
+}
+
+#dashboard_activity {
+	display: none;
+}
+
+.post-title a.row-title {
+	font-size: 0 !important;
+}
+
+.post-title a.row-title:before {
+	content: 'A Day';
+	font-size: 14px !important;
+}
+
+#message p {
+	font-size: 25px !important;
+}
+
+#message {
+	background: #00cc00;
+	border-color: #00cc00;
+}
+
+#message a {
+	color: #fff;
 }

@@ -17,20 +17,17 @@ function _s_paging_nav() {
 		return;
 	}
 	?>
-	<nav class="navigation paging-navigation" role="navigation">
-		<h1 class="screen-reader-text"><?php _e( 'Posts navigation', '_s' ); ?></h1>
-		<div class="nav-links">
-
-			<?php if ( get_next_posts_link() ) : ?>
-			<div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', '_s' ) ); ?></div>
+	<nav role="navigation" class="paging-navigation" aria-label="see more days">
+			<?php if ( get_previous_posts_link() ) : 
+				$ppl=explode('"',get_previous_posts_link()); $ppl_url=$ppl[1]; ?>
+				(<a rel="prev" href="<?php echo $ppl_url; ?>#latest">See newer days</a>)
 			<?php endif; ?>
-
-			<?php if ( get_previous_posts_link() ) : ?>
-			<div class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', '_s' ) ); ?></div>
-			<?php endif; ?>
-
-		</div><!-- .nav-links -->
-	</nav><!-- .navigation -->
+			<?php if ( get_next_posts_link() ) : 
+				$npl=explode('"',get_next_posts_link()); $npl_url=$npl[1]; ?>
+				(<a rel="next" href="<?php echo $npl_url; ?>#latest">See older days</a>)
+			<?php endif; ?>			
+		</div>
+	</nav>
 	<?php
 }
 endif;

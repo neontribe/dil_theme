@@ -9,14 +9,40 @@ lang="en-GB"> <![endif]-->
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<link href="http://fonts.googleapis.com/css?family=Noto+Serif:400,400italic,700" rel="stylesheet" type="text/css">
 	<link rel="icon" href="favico.png" type="image/png" />
+	<link href='https://fonts.googleapis.com/css?family=Bitter:400,400italic,700' data-youshallnotparse='true' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Kreon:700&text=abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ' data-youshallnotparse='true' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Pacifico&text=abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789' data-youshallnotparse='true' rel='stylesheet' type='text/css'>	
+	<style data-youshallnotparse='true'>
+	@font-face {
+		font-family: 'icomoon';
+		src:url('<?php bloginfo('stylesheet_directory'); ?>/icomoon.eot?-wu32mu');
+		src:url('<?php bloginfo('stylesheet_directory'); ?>/icomoon.eot?#iefix-wu32mu') format('embedded-opentype'),
+			url('<?php bloginfo('stylesheet_directory'); ?>/icomoon.woff?-wu32mu') format('woff'),
+			url('<?php bloginfo('stylesheet_directory'); ?>/icomoon.ttf?-wu32mu') format('truetype'),
+			url('<?php bloginfo('stylesheet_directory'); ?>/icomoon.svg?-wu32mu#icomoon') format('svg');
+		font-weight: normal;
+		font-style: normal;
+	}
+	</style>
 	<title><?php wp_title( '|', true, 'right' ); ?></title>
 	<!--[if lt IE 9]>
-		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-		<script src="<?php bloginfo('stylesheet_directory'); ?>/js/selectivizr-min.js"></script>
+		<script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
 	<?php wp_head(); ?>
+	<script>
+
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		  ga('create', 'UA-30970110-2', 'auto');
+		  ga('send', 'pageview');
+
+	</script>
 </head>
 <body <?php body_class(); ?>>
 	<div>
@@ -24,11 +50,11 @@ lang="en-GB"> <![endif]-->
 		<aside role="complementary" aria-labelledby="meta-nav">
 			<h2 class="visually-hidden" id="meta-nav">Site Tools</h2>
 			<ul>
-				<li><a href="/guide"><em>A Day In The Life</em> Guide</a></li>
+				<li><a href="/guide">How to use <em>A Day In The Life</em></a></li>
 				<li><a href="/wp-admin">Login</a></li>
 			</ul>
 		</aside>
-		<button aria-controls="topics" aria-expanded="false">Choose a topic</button>
+		<button aria-controls="topics" aria-expanded="false" type="button">Choose a topic</button>
 		<nav role="navigation" aria-labelledby="topic-nav" id="topics">
 			<h2 class="visually-hidden" id="topic-nav">Topic Navigation</h2>
 			<ul>

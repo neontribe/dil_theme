@@ -93,9 +93,6 @@ add_action( 'widgets_init', '_s_widgets_init' );
  */
 function _s_scripts() {
 	wp_enqueue_style( '_s-style', get_stylesheet_uri() );
-
-	wp_enqueue_script( '_s-jquery', 'http://code.jquery.com/jquery-1.11.1.min.js', array(), '', true );
-
 	wp_enqueue_script( '_s-scripts', get_template_directory_uri() . '/js/scripts.js', array(), '', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -178,8 +175,51 @@ function enqueue_post_script($hook) {
 }
 add_action( 'admin_enqueue_scripts', 'enqueue_post_script' );
 
-// Email encode shortcode
-function email_encode_function( $atts, $content ) {
-    return '<a href="'.antispambot("mailto:".$content).'">'.antispambot($content).'</a>';
+// Login styles
+
+function custom_login_css() {
+echo '<link rel="stylesheet" type="text/css" href="'.get_stylesheet_directory_uri().'/style.css" />';
 }
-add_shortcode( 'email', 'email_encode_function' );
+add_action('login_head', 'custom_login_css');
+
+/**
+ * Add a widget to the dashboard.
+ *
+ * This function is hooked into the 'wp_dashboard_setup' action below.
+ */
+function example_add_dashboard_widgets() {
+
+	wp_add_dashboard_widget(
+                 'example_dashboard_widget',         // Widget slug.
+                 'Is it time to write a new day?',         // Title.
+                 'example_dashboard_widget_function' // Display function.
+        );	
+}
+add_action( 'wp_dashboard_setup', 'example_add_dashboard_widgets' );
+
+/**
+ * Create the function to output the contents of our Dashboard Widget.
+ */
+function example_dashboard_widget_function() {
+
+	// Display whatever it is you want to show.
+	echo '<h2>A day in the life: 7th November 2014</h2>';
+	echo '<p>Remember, the first day in your life you are sharing is Friday 7th November.  You’ll have until 14th of November to submit your day.</p>';
+	echo '<p>We can’t use any writing we receive before Friday 7th November or after 14th November. Please only upload one entry (up to about 700 words) for your day.</p>';
+	echo '<div><a class="button-shaped" href="http://dayinthelifemh.org.uk/wp-admin/post-new.php">write a new day!</a></div>';
+}
+
+function posts_for_current_author($query) {
+	global $pagenow;
+
+	if( 'edit.php' != $pagenow || !$query->is_admin )
+	    return $query;
+
+	if( !current_user_can( 'manage_options' ) ) {
+		global $user_ID;
+		$query->set('author', $user_ID );
+	}
+	return $query;
+}
+add_filter('pre_get_posts', 'posts_for_current_author');
+

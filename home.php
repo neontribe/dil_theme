@@ -14,10 +14,13 @@ endwhile;
 wp_reset_query();
 ?> 
 <a href="/wp-admin/post-new.php" class="button-shaped submit-day">Add a day!</a>
-<h2 class="latest">Latest Days</h2>
-<ol class="grid">
-<?php if ( have_posts() ) : ?>
 
+<?php if ( have_posts() ) : ?>
+	<h2 class="latest" id="latest">Latest Days</h2>
+
+	<?php _s_paging_nav(); ?>
+
+	<ol class="grid">
 	<?php /* Start the Loop */ ?>
 	<?php while ( have_posts() ) : the_post(); ?>
 
@@ -30,14 +33,10 @@ wp_reset_query();
 		?>
 
 	<?php endwhile; ?>
+	</ol>
 
 	<?php _s_paging_nav(); ?>
 
-<?php else : ?>
-
-	<?php get_template_part( 'content', 'none' ); ?>
-
 <?php endif; ?>
-</ol>
 
 <?php get_footer(); ?>

@@ -13,11 +13,15 @@
 
 
 		<div class="center">
-			<?php
-				$datetime = get_the_date('Y-m-d');
-				$date = get_the_date('d/m/Y');
+
+				<?php
+			$date = get_the_date('d/m/Y');
+			$datetime = get_the_date('Y-m-d');
+			if(substr_count($date, '/2014')) {
+				$date = '7th of November';
+			}
 			?>
-			<p>Published on the day <time datetime="<?php echo $datetime; ?>"><?php echo $date; ?></time>.</p>
+			<p class="published">Published on the day <time datetime="<?php echo $datetime; ?>"><?php echo $date; ?></time>.</p>
 			<p>Found in <span class="post-cats">
 			<?php
 				$categories = get_the_category();
@@ -27,12 +31,13 @@
 						$categoryParent = get_cat_name($category->parent);
 						$class = strtolower($category->name); ?>
 						<a class="<?php echo $class; ?>" href="<?php echo get_category_link($category->cat_ID) ?>">
-							<?php echo $categoryParent; ?><span class="visually-hidden"><?php echo $category->name ?></span></a><br/>
-						<span class="tags">with the tags <?php the_tags('', ' ', ''); ?></span>
+							<?php echo $categoryParent; ?><span class="visually-hidden"><?php echo $category->name ?></span></a> 
 							<?php
 					}
-				} 
-			?>
+				} ?>
+				<?php //if( has_tag() ) { ?>
+					<!--<br><span class="tags">with the tags <?php // the_tags('', ' ', ''); ?></span>-->
+				<?php // } ?>
 			</span>
 			</p>
 		</div>
